@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { getBooks, deleteBook } from '../services/bookService'
 import type { Book } from '../types/book'
@@ -29,7 +29,7 @@ export default function BookListPage() {
     return () => clearTimeout(t)
   }, [filterAuthor])
 
-  async function loadBooks() {
+  const loadBooks = useCallback(async () => {
     setLoading(true)
     setError(null)
     try {
@@ -43,11 +43,11 @@ export default function BookListPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [debouncedSearch, debouncedAuthor])
 
   useEffect(() => {
     loadBooks()
-  }, [debouncedSearch, debouncedAuthor])
+  }, [loadBooks])
 
   const filteredBooks = useMemo(() => books, [books])
 

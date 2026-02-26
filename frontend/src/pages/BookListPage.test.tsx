@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, waitFor, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import type { Book } from '../types/book'
 import BookListPage from './BookListPage'
 
 vi.mock('../services/bookService', () => ({
@@ -10,7 +11,7 @@ vi.mock('../services/bookService', () => ({
 
 const { getBooks } = await import('../services/bookService')
 
-const mockBooks = [
+const mockBooks: Book[] = [
   { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', description: 'A novel about the American dream.' },
   { id: 2, title: '1984', author: 'George Orwell', description: 'A dystopian novel.' },
 ]
@@ -46,7 +47,7 @@ describe('BookListPage', () => {
   })
 
   it('renders book table when books are returned', async () => {
-    vi.mocked(getBooks).mockResolvedValue(mockBooks as any)
+    vi.mocked(getBooks).mockResolvedValue(mockBooks)
     renderBookListPage()
     await waitFor(() => {
       expect(screen.getByRole('table')).toBeInTheDocument()
@@ -59,7 +60,7 @@ describe('BookListPage', () => {
   })
 
   it('shows Edit links and Delete buttons for each book', async () => {
-    vi.mocked(getBooks).mockResolvedValue(mockBooks as any)
+    vi.mocked(getBooks).mockResolvedValue(mockBooks)
     renderBookListPage()
     await waitFor(() => {
       const table = screen.getByRole('table')
@@ -72,7 +73,7 @@ describe('BookListPage', () => {
   })
 
   it('displays total books count in metrics', async () => {
-    vi.mocked(getBooks).mockResolvedValue(mockBooks as any)
+    vi.mocked(getBooks).mockResolvedValue(mockBooks)
     renderBookListPage()
     await waitFor(() => {
       const table = screen.getByRole('table')

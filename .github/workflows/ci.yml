@@ -20,15 +20,15 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Restore
-        run: dotnet restore
+        run: dotnet restore LibraryManagement.sln
         working-directory: backend
 
       - name: Build
-        run: dotnet build --no-restore -c Release
+        run: dotnet build LibraryManagement.sln --no-restore -c Release
         working-directory: backend
 
       - name: Test
-        run: dotnet test --no-build -c Release --verbosity normal
+        run: dotnet test LibraryManagement.sln --no-build -c Release --verbosity normal
         working-directory: backend
 
   frontend:
