@@ -1,0 +1,277 @@
+/* Dark theme – applied when html has data-theme="dark" */
+html[data-theme="dark"] body {
+  color: #e2e8f0;
+  background: #0f172a;
+}
+
+html[data-theme="dark"] #root {
+  background: #0f172a;
+}
+
+html[data-theme="dark"] a {
+  color: #93c5fd;
+}
+
+/* App layout */
+html[data-theme="dark"] .app-layout {
+  background: #0f172a;
+}
+
+html[data-theme="dark"] .app-main {
+  background: #0f172a;
+}
+
+/* Dashboard pages */
+html[data-theme="dark"] .dashboard-page {
+  background: #0f172a;
+}
+
+html[data-theme="dark"] .dashboard-header {
+  background: #1e293b;
+  border-bottom-color: #334155;
+}
+
+html[data-theme="dark"] .breadcrumbs {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .search-input {
+  background: #1e293b;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .search-input::placeholder {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .book-management {
+  background: #1e293b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] .section-title {
+  color: #f1f5f9;
+}
+
+html[data-theme="dark"] .section-desc {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .metric-card {
+  background: #334155;
+}
+
+html[data-theme="dark"] .metric-label {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .metric-value {
+  color: #f1f5f9;
+}
+
+html[data-theme="dark"] .metric-hint {
+  color: #64748b;
+}
+
+html[data-theme="dark"] .tab {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .tab.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+html[data-theme="dark"] .btn-filter,
+html[data-theme="dark"] .btn-export {
+  background: #334155;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .btn-filter:hover,
+html[data-theme="dark"] .btn-export:hover {
+  background: #475569;
+  border-color: #64748b;
+}
+
+html[data-theme="dark"] .filter-dropdown {
+  background: #1e293b;
+  border-color: #475569;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] .filter-input {
+  background: #334155;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .books-table th {
+  background: #334155;
+  color: #94a3b8;
+  border-bottom-color: #475569;
+}
+
+html[data-theme="dark"] .books-table td {
+  border-bottom-color: #334155;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .books-table tbody tr:hover {
+  background: #334155;
+}
+
+html[data-theme="dark"] .book-detail .book-title {
+  color: #f1f5f9;
+}
+
+html[data-theme="dark"] .book-detail .book-author {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .col-desc {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .btn-pagination {
+  background: #334155;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .btn-pagination:hover:not(:disabled) {
+  background: #475569;
+  border-color: #64748b;
+}
+
+html[data-theme="dark"] .btn-pagination.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+html[data-theme="dark"] .panel {
+  background: #1e293b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] .panel-title {
+  color: #f1f5f9;
+}
+
+html[data-theme="dark"] .panel-hint {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .recent-item {
+  border-bottom-color: #334155;
+}
+
+html[data-theme="dark"] .recent-meta {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .loading,
+html[data-theme="dark"] .empty-message {
+  color: #94a3b8;
+}
+
+/* Add/Edit book page */
+html[data-theme="dark"] .add-book-page {
+  background: #0f172a;
+}
+
+html[data-theme="dark"] .add-book-breadcrumbs {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .manage-library-section {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+html[data-theme="dark"] .manage-library-title {
+  color: #f1f5f9;
+}
+
+html[data-theme="dark"] .add-book-card {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+html[data-theme="dark"] .add-book-form input,
+html[data-theme="dark"] .add-book-form textarea {
+  background: #334155;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .add-book-form input::placeholder,
+html[data-theme="dark"] .add-book-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .add-book-form input:focus,
+html[data-theme="dark"] .add-book-form textarea:focus {
+  border-color: #2563eb;
+}
+
+html[data-theme="dark"] .existing-books-title {
+  color: #f1f5f9;
+}
+
+html[data-theme="dark"] .add-book-loading,
+html[data-theme="dark"] .add-book-empty {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .book-card {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+html[data-theme="dark"] .book-card-title {
+  color: #f1f5f9;
+}
+
+html[data-theme="dark"] .book-card-author {
+  color: #94a3b8;
+}
+
+html[data-theme="dark"] .book-card-desc {
+  color: #cbd5e1;
+}
+
+html[data-theme="dark"] .btn-delete {
+  background: #475569;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .btn-delete:hover:not(:disabled) {
+  background: #64748b;
+}
+
+html[data-theme="dark"] .btn-cancel-secondary {
+  background: #475569;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .btn-cancel-secondary:hover {
+  background: #64748b;
+}
+
+/* Settings page select */
+html[data-theme="dark"] select {
+  background: #334155;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+/* Alert in dark */
+html[data-theme="dark"] .alert-error {
+  background: #450a0a;
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}

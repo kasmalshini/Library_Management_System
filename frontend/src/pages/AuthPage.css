@@ -1,0 +1,192 @@
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* Header */
+.auth-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.auth-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+}
+
+.auth-brand:hover {
+  color: #374151;
+}
+
+.auth-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.auth-nav a {
+  font-size: 0.9375rem;
+  color: #4b5563;
+  text-decoration: none;
+}
+
+.auth-nav a:hover {
+  color: #111827;
+}
+
+/* Main content – centered card */
+.auth-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.auth-card-title {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.alert-error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.auth-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.auth-form .form-group label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: #374151;
+}
+
+.auth-form .form-group input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: #111827;
+}
+
+.auth-form .form-group input::placeholder {
+  color: #9ca3af;
+}
+
+.auth-form .form-group input:focus {
+  outline: none;
+  border-color: #ea580c;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+}
+
+.form-hint {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  color: #6b7280;
+}
+
+.auth-form .form-actions {
+  margin-top: 1.5rem;
+}
+
+.auth-form .btn {
+  width: 100%;
+}
+
+/* Orange Login / Sign up button (Expernetic design) */
+.btn-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #ea580c;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  transition: background 0.15s;
+}
+
+.btn-login:hover:not(:disabled) {
+  background: #c2410c;
+}
+
+.btn-login:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.auth-switch {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.9375rem;
+  color: #6b7280;
+}
+
+.auth-switch a {
+  font-weight: 500;
+  color: #ea580c;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.auth-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+}
+
+.auth-footer a {
+  color: #6b7280;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  color: #111827;
+}
