@@ -67,7 +67,7 @@ if (!app.Environment.IsEnvironment("Testing"))
     // Verify the Books table exists (handles corrupted or out-of-sync migration history).
     try
     {
-        await db.Books.FirstOrDefaultAsync();
+        await db.Books.OrderBy(b => b.Id).FirstOrDefaultAsync();
     }
     catch (Exception ex)
     {
@@ -83,7 +83,7 @@ if (!app.Environment.IsEnvironment("Testing"))
                     ""Description"" TEXT NULL
                 );
             ");
-            await db.Books.FirstOrDefaultAsync(); // verify
+            await db.Books.OrderBy(b => b.Id).FirstOrDefaultAsync(); // verify
         }
         else
             throw;

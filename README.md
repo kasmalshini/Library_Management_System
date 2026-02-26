@@ -7,6 +7,20 @@ A full-stack Library Management System with a C# .NET Web API backend and a Reac
 - **.NET 8 SDK** (or .NET 9) – [Download](https://dotnet.microsoft.com/download)
 - **Node.js 18+** – [Download](https://nodejs.org/)
 
+## First-time setup
+
+After cloning the repository:
+
+```bash
+# Backend: restore packages
+cd backend && dotnet restore && cd ..
+
+# Frontend: install dependencies
+cd frontend && npm install && cd ..
+```
+
+Then use the commands under **Running locally** to start the API and the app.
+
 ## Project structure
 
 ```
@@ -104,6 +118,25 @@ dotnet ef database update
 
 - **Backend:** `cd backend && dotnet publish -c Release`
 - **Frontend:** `cd frontend && npm run build` (output in `frontend/dist/`)
+
+## CI/CD
+
+GitHub Actions runs on every **push** and **pull request** to `main` or `master`.
+
+### Workflow (`.github/workflows/ci.yml`)
+
+| Job       | Steps |
+| --------- | ----- |
+| **Backend**  | Checkout → Setup .NET 9 → `dotnet restore` → `dotnet build -c Release` → `dotnet test` |
+| **Frontend** | Checkout → Setup Node 20 → `npm ci` → `npm run lint` → `npm run build` → `npm run test:run` |
+
+### Enabling CI
+
+1. Push the repo to GitHub (or ensure `.github/workflows/ci.yml` is on the default branch).
+2. **Actions** are on by default for public repos. For a private repo: **Settings → Actions → General** → allow workflows.
+3. Trigger a run by pushing a commit or opening a PR; status appears on the commit or PR.
+
+No secrets are required for this workflow; it only builds and tests the code.
 
 ## Testing
 
