@@ -13,13 +13,16 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "Library Management API", Version = "v1" });
 });
 
-// SQLite database – file stored in the application directory
-builder.Services.AddDbContext<LibraryManagement.Api.Data.LibraryDbContext>(options =>
+// SQLite database – file stored in the application directory (skip in Testing; tests use InMemory).
+if (!builder.Environment.IsEnvironment("Testing"))
 {
-    var fileName = builder.Configuration["Database:FileName"] ?? "library.db";
-    var dbPath = Path.Combine(builder.Environment.ContentRootPath, fileName);
-    options.UseSqlite($"Data Source={dbPath}");
-});
+    builder.Services.AddDbContext<LibraryManagement.Api.Data.LibraryDbContext>(options =>
+    {
+        var fileName = builder.Configuration["Database:FileName"] ?? "library.db";
+        var dbPath = Path.Combine(builder.Environment.ContentRootPath, fileName);
+        options.UseSqlite($"Data Source={dbPath}");
+    });
+}
 
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "LibraryManagementSecretKeyAtLeast32CharactersLong!";
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "LibraryManagement.Api";
@@ -53,9 +56,11 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Apply pending migrations on startup so the app is runnable with a single command.
-using (var scope = app.Services.CreateScope())
+// Apply pending migrations on startup (skip when testing with InMemory).
+if (!app.Environment.IsEnvironment("Testing"))
 {
+    using (var scope = app.Services.CreateScope())
+    {
     var db = scope.ServiceProvider.GetRequiredService<LibraryManagement.Api.Data.LibraryDbContext>();
     db.Database.Migrate();
 
@@ -93,6 +98,7 @@ using (var scope = app.Services.CreateScope())
         );
         CREATE UNIQUE INDEX IF NOT EXISTS ""IX_Users_Email"" ON ""Users"" (""Email"");
     ");
+    }
 }
 
 // Configure the HTTP request pipeline.
@@ -108,3 +114,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

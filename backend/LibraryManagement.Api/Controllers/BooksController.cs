@@ -78,7 +78,7 @@ public class BooksController : ControllerBase
     {
         var book = await _db.Books.FindAsync([id], cancellationToken);
         if (book == null)
-            throw new KeyNotFoundException($"Book with id {id} was not found.");
+            return NotFound();
         return Ok(new BookResponse
         {
             Id = book.Id,
@@ -140,7 +140,7 @@ public class BooksController : ControllerBase
 
         var book = await _db.Books.FindAsync([id], cancellationToken);
         if (book == null)
-            throw new KeyNotFoundException($"Book with id {id} was not found.");
+            return NotFound();
 
         book.Title = request.Title.Trim();
         book.Author = request.Author.Trim();
@@ -169,7 +169,7 @@ public class BooksController : ControllerBase
     {
         var book = await _db.Books.FindAsync([id], cancellationToken);
         if (book == null)
-            throw new KeyNotFoundException($"Book with id {id} was not found.");
+            return NotFound();
         _db.Books.Remove(book);
         await _db.SaveChangesAsync(cancellationToken);
         return NoContent();

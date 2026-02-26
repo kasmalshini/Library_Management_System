@@ -104,3 +104,35 @@ dotnet ef database update
 
 - **Backend:** `cd backend && dotnet publish -c Release`
 - **Frontend:** `cd frontend && npm run build` (output in `frontend/dist/`)
+
+## Testing
+
+### Backend (xUnit)
+
+From the backend directory:
+
+```bash
+cd backend
+dotnet test
+```
+
+**Note:** Stop the API first (Ctrl+C in the terminal where it’s running). If the API is running, the build can lock `LibraryManagement.Core.dll` and tests will fail with “file is being used by another process”.
+
+This runs the **LibraryManagement.Tests** project:
+- **Unit tests:** `PasswordHasher` (hash/verify, invalid input).
+- **API controller tests:** `BooksController` (GET empty list, POST create, GET by id, 404, PUT update, DELETE). Uses in-memory EF Core and test auth; run `dotnet restore` first if packages are missing.
+
+### Frontend (Vitest)
+
+From the frontend directory:
+
+```bash
+cd frontend
+npm install
+npm run test:run
+```
+
+Or watch mode: `npm run test`. Tests cover:
+- **Auth** (`src/types/auth.test.ts`): `getStoredToken`, `setStoredAuth`, `isAuthenticated`, etc.
+- **Theme** (`src/theme.test.ts`): `getStoredTheme`, `applyTheme`, `setTheme`.
+- **BookListPage** (`src/pages/BookListPage.test.tsx`): loading state, empty list, table with books, Edit/Delete links, metrics.
